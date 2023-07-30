@@ -50,7 +50,8 @@ class Problem1 {
         public int multiplyPlaceValue() {
             if (hundreds > 0) {
                 return hundreds * tens * units;
-            } else if (tens > 0) {
+            }
+            if (tens > 0) {
                 return tens * units;
             }
             return units;
@@ -67,10 +68,7 @@ class Problem1 {
             if (checkPageLength(pobiPages) || checkPageLength(crongPages)) {
                 return true;
             }
-            if (checkPageOrder(pobiPages) || checkPageOrder(crongPages)) {
-                return true;
-            }
-            return false;
+            return checkPageOrder(pobiPages) || checkPageOrder(crongPages);
         }
 
         private static boolean checkPageLength(List<Integer> pages) {
@@ -90,10 +88,7 @@ class Problem1 {
             if (rightPage % 2 != 0) {
                 return true;
             }
-            if (rightPage - leftPage != 1) {
-                return true;
-            }
-            return false;
+            return rightPage - leftPage != 1;
         }
     }
 
