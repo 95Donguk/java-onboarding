@@ -10,8 +10,7 @@ public class Problem2 {
         System.out.printf("%-30s|%-30s|", "cryptogram", "result");
         printLine();
         cryptograms.forEach(cryptogram -> {
-            System.out.printf("%-30s|%-30s|", "\"" + cryptogram + "\"",
-                    "\"" + solution(cryptogram) + "\"");
+            System.out.printf("%-30s|%-30s|", "\"" + cryptogram + "\"", "\"" + solution(cryptogram) + "\"");
             printLine();
         });
     }
@@ -65,13 +64,11 @@ public class Problem2 {
     }
 
     private static class CryptogramValidator {
-        private static final int MIN_CRYPTOGRAM_LENGTH = 1;
         private static final int MAX_CRYPTOGRAM_LENGTH = 1000;
 
         public static void checkException(String cryptogram) {
             if (isNull(cryptogram) || checkLengthOfCryptogram(cryptogram)) {
-                throw new IllegalArgumentException(
-                        "The cryptogram's length should be between 1 and 1000.");
+                throw new IllegalArgumentException("The cryptogram's length should be between 1 and 1000.");
             }
             if (isUpperCase(cryptogram)) {
                 throw new IllegalArgumentException("The cryptogram should be lowercase.");
@@ -83,8 +80,7 @@ public class Problem2 {
         }
 
         private static boolean checkLengthOfCryptogram(String cryptogram) {
-            return cryptogram.length() < MIN_CRYPTOGRAM_LENGTH ||
-                    cryptogram.length() > MAX_CRYPTOGRAM_LENGTH;
+            return cryptogram.isEmpty() || cryptogram.length() > MAX_CRYPTOGRAM_LENGTH;
         }
 
         private static boolean isUpperCase(String cryptogram) {
