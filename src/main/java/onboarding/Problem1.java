@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 class Problem1 {
+
+    public static final int POBI_WIN = 1;
+    public static final int CRONG_WIN = 2;
+    public static final int DRAW = 0;
+    public static final int EXCEPTION = -1;
+
     public static void main(String[] args) {
         List<Integer> pobi = new ArrayList<>(Book.open());
         List<Integer> crong = new ArrayList<>(Book.open());
@@ -20,7 +26,7 @@ class Problem1 {
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
         if (PageValidator.hasPageException(pobi, crong)) {
-            return -1;
+            return EXCEPTION;
         }
         answer = Math.min(answer, compareUserScore(pobi, crong));
         return answer;
@@ -92,12 +98,12 @@ class Problem1 {
         int crongScore = findScore(crongPages);
 
         if (pobiScore > crongScore) {
-            return 1;
+            return POBI_WIN;
         }
         if (pobiScore < crongScore) {
-            return 2;
+            return CRONG_WIN;
         }
-        return 0;
+        return DRAW;
     }
 
     private static int findScore(List<Integer> pages) {
