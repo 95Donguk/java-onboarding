@@ -43,7 +43,7 @@ public class Problem2 {
         return stringBuilder.toString();
     }
 
-    private static List<Character> removeDuplicateChar(List<Character> charList) {
+    private static void removeDuplicateChar(List<Character> charList) {
         for (int i = 1; i < charList.size(); i++) {
             if (isDuplicate(charList, i)) {
                 charList.remove(i - 1);
@@ -51,19 +51,17 @@ public class Problem2 {
                 i = 0;
             }
         }
-        return charList;
     }
 
     private static boolean isDuplicate(List<Character> charList, int i) {
         return Objects.equals(charList.get(i - 1), charList.get(i));
     }
 
-    private static List<Character> splitString(String cryptogram, List<Character> charList) {
+    private static void splitString(String cryptogram, List<Character> charList) {
         char[] chars = cryptogram.toCharArray();
         for (char aChar : chars) {
             charList.add(aChar);
         }
-        return charList;
     }
 
     private static class CryptogramValidator {
