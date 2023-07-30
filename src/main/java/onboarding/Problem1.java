@@ -56,7 +56,7 @@ class Problem1 {
             return units;
         }
 
-        public int addPlaceValue() {
+        public int sumPlaceValue() {
             return hundreds + tens + units;
         }
 
@@ -130,7 +130,7 @@ class Problem1 {
 
     private static int extractMaxNumberValueFromPage(Integer page) {
         PlaceValue placeValue = new PlaceValue(page);
-        return compareNumber(placeValue.addPlaceValue(), placeValue.multiplyPlaceValue());
+        return compareNumber(placeValue.sumPlaceValue(), placeValue.multiplyPlaceValue());
     }
 
     private static int compareNumber(int addPlaceValue, int multiplyPlaceValue) {
