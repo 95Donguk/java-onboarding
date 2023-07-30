@@ -8,12 +8,16 @@ public class Problem2 {
     public static void main(String[] args) {
         List<String> cryptograms = List.of("browoanoommnaon", "zyelleyz");
         System.out.printf("%-30s|%-30s|", "cryptogram", "result");
-        System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+        printLine();
         cryptograms.forEach(cryptogram -> {
             System.out.printf("%-30s|%-30s|", "\"" + cryptogram + "\"",
                 "\"" + solution(cryptogram) + "\"");
-            System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+            printLine();
         });
+    }
+
+    private static void printLine() {
+        System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
     }
 
     public static String solution(String cryptogram) {
