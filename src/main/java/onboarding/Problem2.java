@@ -11,7 +11,7 @@ public class Problem2 {
         printLine();
         cryptograms.forEach(cryptogram -> {
             System.out.printf("%-30s|%-30s|", "\"" + cryptogram + "\"",
-                "\"" + solution(cryptogram) + "\"");
+                    "\"" + solution(cryptogram) + "\"");
             printLine();
         });
     }
@@ -28,39 +28,39 @@ public class Problem2 {
     }
 
     private static String decrypt(String cryptogram) {
-        List<Character> charList = new LinkedList<>();
+        List<Character> characters = new LinkedList<>();
 
-        splitString(cryptogram, charList);
-        removeDuplicateChar(charList);
-        return combineChar(charList);
+        splitString(cryptogram, characters);
+        removeDuplicateChar(characters);
+        return combineChar(characters);
     }
 
-    private static String combineChar(List<Character> charList) {
+    private static String combineChar(List<Character> charListcharacters) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Character character : charList) {
+        for (Character character : charListcharacters) {
             stringBuilder.append(character);
         }
         return stringBuilder.toString();
     }
 
-    private static void removeDuplicateChar(List<Character> charList) {
-        for (int i = 1; i < charList.size(); i++) {
-            if (isDuplicate(charList, i)) {
-                charList.remove(i - 1);
-                charList.remove(i - 1);
+    private static void removeDuplicateChar(List<Character> characters) {
+        for (int i = 1; i < characters.size(); i++) {
+            if (isDuplicate(characters, i)) {
+                characters.remove(i - 1);
+                characters.remove(i - 1);
                 i = 0;
             }
         }
     }
 
-    private static boolean isDuplicate(List<Character> charList, int i) {
-        return Objects.equals(charList.get(i - 1), charList.get(i));
+    private static boolean isDuplicate(List<Character> characters, int i) {
+        return Objects.equals(characters.get(i - 1), characters.get(i));
     }
 
-    private static void splitString(String cryptogram, List<Character> charList) {
+    private static void splitString(String cryptogram, List<Character> characters) {
         char[] chars = cryptogram.toCharArray();
         for (char aChar : chars) {
-            charList.add(aChar);
+            characters.add(aChar);
         }
     }
 
@@ -71,7 +71,7 @@ public class Problem2 {
         public static void checkException(String cryptogram) {
             if (isNull(cryptogram) || checkLengthOfCryptogram(cryptogram)) {
                 throw new IllegalArgumentException(
-                    "The cryptogram's length should be between 1 and 1000.");
+                        "The cryptogram's length should be between 1 and 1000.");
             }
             if (isUpperCase(cryptogram)) {
                 throw new IllegalArgumentException("The cryptogram should be lowercase.");
@@ -84,7 +84,7 @@ public class Problem2 {
 
         private static boolean checkLengthOfCryptogram(String cryptogram) {
             return cryptogram.length() < MIN_CRYPTOGRAM_LENGTH ||
-                cryptogram.length() > MAX_CRYPTOGRAM_LENGTH;
+                    cryptogram.length() > MAX_CRYPTOGRAM_LENGTH;
         }
 
         private static boolean isUpperCase(String cryptogram) {
