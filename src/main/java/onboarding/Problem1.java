@@ -3,7 +3,6 @@ package onboarding;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 class Problem1 {
 
@@ -122,12 +121,16 @@ class Problem1 {
     }
 
     private static int findScore(List<Integer> pages) {
-        Optional<Integer> score = pages.stream().map(page -> {
-                PlaceValue placeValue = new PlaceValue(page);
-                return compareNumber(placeValue.addPlaceValue(), placeValue.multiplyPlaceValue());
-            }
-        ).sorted(Comparator.reverseOrder()).findAny();
-        return score.orElse(0);
+        return pages.stream()
+                .map(Problem1::extractMaxNumberValueFromPage)
+                .sorted(Comparator.reverseOrder())
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
+    }
+
+    private static int extractMaxNumberValueFromPage(Integer page) {
+        PlaceValue placeValue = new PlaceValue(page);
+        return compareNumber(placeValue.addPlaceValue(), placeValue.multiplyPlaceValue());
     }
 
     private static int compareNumber(int addPlaceValue, int multiplyPlaceValue) {
