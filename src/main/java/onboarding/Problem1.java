@@ -17,9 +17,13 @@ class Problem1 {
         List<Integer> crong = new ArrayList<>(Book.open());
 
         System.out.printf("%-10s|%-10s|%-10s|", "pobi", "crong", "result");
-        System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+        printLine();
         System.out.printf("%-10s|%-10s|%-10d|", pobi.toString(), crong.toString(),
             solution(pobi, crong));
+        printLine();
+    }
+
+    private static void printLine() {
         System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
     }
 
