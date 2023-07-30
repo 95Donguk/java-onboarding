@@ -79,16 +79,32 @@ class Problem1 {
             int leftPage = pages.get(0);
             int rightPage = pages.get(1);
 
-            if (leftPage > rightPage) {
+            if (isLeftPageGreaterThanRightPage(leftPage, rightPage)) {
                 return true;
             }
-            if (leftPage % 2 != 1) {
+            if (isLeftPageEven(leftPage)) {
                 return true;
             }
-            if (rightPage % 2 != 0) {
+            if (isRightPageOdd(rightPage)) {
                 return true;
             }
+            return isPageRangeInvalid(rightPage, leftPage);
+        }
+
+        private static boolean isPageRangeInvalid(int rightPage, int leftPage) {
             return rightPage - leftPage != 1;
+        }
+
+        private static boolean isLeftPageGreaterThanRightPage(int leftPage, int rightPage) {
+            return leftPage > rightPage;
+        }
+
+        private static boolean isRightPageOdd(int rightPage) {
+            return rightPage % 2 != 0;
+        }
+
+        private static boolean isLeftPageEven(int leftPage) {
+            return leftPage % 2 != 1;
         }
     }
 
