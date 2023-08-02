@@ -31,23 +31,30 @@ public class Problem4 {
     }
 
     private static List<Character> replaceLetters(List<Character> letters) {
-        return letters.stream().map(letter -> {
-            if (Character.isUpperCase(letter)) {
-                letter = convertForUpperCaseLetter(letter);
-            }
-            if (Character.isLowerCase(letter)) {
-                letter = convertForLowerCaseLetter(letter);
-            }
-            return letter;
-        }).collect(Collectors.toList());
+        return letters.stream()
+                .map(Problem4::transformFromOnlyAlphabet)
+                .collect(Collectors.toList());
     }
 
-    private static Character convertForUpperCaseLetter(Character letter) {
+    private static Character transformFromOnlyAlphabet(Character letter) {
+        if (Character.isAlphabetic(letter)) {
+            return transformCharacter(letter);
+        }
+        return letter;
+    }
+
+    private static Character transformCharacter(Character letter) {
+        boolean isLowerCase = Character.isLowerCase(letter);
+        if (isLowerCase) {
+            char uppercaseLetter = Character.toUpperCase(letter);
+            letter = convertForLetter(uppercaseLetter);
+            return Character.toLowerCase(letter);
+        }
+        return convertForLetter(letter);
+    }
+
+    private static Character convertForLetter(char letter) {
         return (char) ('A' + 'Z' - letter);
-    }
-
-    private static Character convertForLowerCaseLetter(Character letter) {
-        return (char) ('a' + 'z' - letter);
     }
 
     private static List<Character> splitWord(String word, List<Character> letters) {
