@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Problem4 {
+
+    private static final char ALPHABET_UPPERCASE_A = 'A';
+    private static final char ALPHABET_UPPERCASE_Z = 'Z';
+
     public static void main(String[] args) {
         String word = "I love you";
         System.out.printf("%-30s|%-30s|", "word", "result");
@@ -46,15 +50,15 @@ public class Problem4 {
     private static Character transformCharacter(Character letter) {
         boolean isLowerCase = Character.isLowerCase(letter);
         if (isLowerCase) {
-            char uppercaseLetter = Character.toUpperCase(letter);
-            letter = convertForLetter(uppercaseLetter);
+            char upperCaseLetter = Character.toUpperCase(letter);
+            letter = convertForLetter(upperCaseLetter);
             return Character.toLowerCase(letter);
         }
         return convertForLetter(letter);
     }
 
     private static Character convertForLetter(char letter) {
-        return (char) ('A' + 'Z' - letter);
+        return (char) (ALPHABET_UPPERCASE_A + ALPHABET_UPPERCASE_Z - letter);
     }
 
     private static List<Character> splitWord(String word, List<Character> letters) {
