@@ -9,7 +9,7 @@ public class Problem5 {
         List<Integer> moneyList = List.of(50237, 15000);
         System.out.printf("%-10s|%-30s|", "number", "result");
         System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
-        moneyList.stream().forEach(money -> {
+        moneyList.forEach(money -> {
             System.out.printf("%-10d|%-30s|", money, solution(money));
             System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
         });
