@@ -59,7 +59,6 @@ public class Problem4 {
     }
 
     private static class Word {
-        private static final int MIN_WORD_LENGTH = 1;
         private static final int MAX_WORD_LENGTH = 1000;
 
         public static void validate(String word) {
@@ -70,7 +69,7 @@ public class Problem4 {
         }
 
         private static boolean checkLengthOfWord(String word) {
-            return word.length() < MIN_WORD_LENGTH || word.length() > MAX_WORD_LENGTH;
+            return word.isEmpty() || word.length() > MAX_WORD_LENGTH;
         }
     }
 }
