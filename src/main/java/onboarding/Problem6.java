@@ -22,8 +22,12 @@ public class Problem6 {
         );
 
         System.out.printf("%-30s|%-30s|", "forms", "result");
-        System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+        printLine();
         System.out.printf("%-30s|%-30s|", forms, solution(forms));
+        printLine();
+    }
+
+    private static void printLine() {
         System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
     }
 
@@ -147,8 +151,7 @@ public class Problem6 {
             }
 
             private static boolean checkNicknameLength(String nickname) {
-                return nickname.isEmpty() ||
-                    nickname.length() >= MAX_NICKNAME_LENGTH;
+                return nickname.isEmpty() || nickname.length() >= MAX_NICKNAME_LENGTH;
             }
         }
     }
