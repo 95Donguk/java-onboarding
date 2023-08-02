@@ -36,6 +36,9 @@ public class Problem3 {
     static class Number {
         private static final int MIN_NUMBER_RANGE = 1;
         private static final int MAX_NUMBER_RANGE = 100;
+        private static final int THREE = 3;
+        private static final int SIX = 6;
+        private static final int NINE = 9;
 
         public static int countClapOfNumber(int number) {
             int clap = 0;
@@ -48,7 +51,19 @@ public class Problem3 {
         }
 
         private static boolean hasThreeOrSixOrNine(int digit) {
-            return digit == 3 || digit == 6 || digit == 9;
+            return isThree(digit) || isSix(digit) || isNine(digit);
+        }
+
+        private static boolean isThree(int digit) {
+            return digit == THREE;
+        }
+
+        private static boolean isSix(int digit) {
+            return digit == SIX;
+        }
+
+        private static boolean isNine(int digit) {
+            return digit == NINE;
         }
 
         public static void validate(int number) {
