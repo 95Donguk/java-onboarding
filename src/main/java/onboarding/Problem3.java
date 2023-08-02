@@ -10,11 +10,15 @@ public class Problem3 {
     public static void main(String[] args) {
         List<Integer> numbers = List.of(13, 33);
         System.out.printf("%-10s|%-10s|", "number", "result");
-        System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+        printLine();
         numbers.forEach(number -> {
             System.out.printf("%-10d|%-10d|", number, solution(number));
-            System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+            printLine();
         });
+    }
+
+    private static void printLine() {
+        System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
     }
 
     public static int solution(int number) {
