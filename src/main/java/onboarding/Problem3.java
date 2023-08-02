@@ -1,7 +1,6 @@
 package onboarding;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Problem3 {
@@ -29,11 +28,6 @@ public class Problem3 {
     }
 
     private static int findResult(int number) {
-//        int result = 0;
-//        for (int i = START_NUMBER; i <= number; i++) {
-//            result += Number.countClapOfNumber(i);
-//        }
-//        return result;
         return IntStream.rangeClosed(START_NUMBER, number)
                 .map(Number::countClapOfNumber)
                 .sum();
@@ -54,13 +48,13 @@ public class Problem3 {
         }
 
         private static boolean hasThreeOrSixOrNine(int digit) {
-            return Objects.equals(3, digit) || Objects.equals(6, digit) || Objects.equals(9, digit);
+            return digit == 3 || digit == 6 || digit == 9;
         }
 
         public static void validate(int number) {
             if (checkNumberRange(number)) {
                 throw new IllegalArgumentException(
-                    "The number should be a natural number between 1 and 10,000");
+                        "The number should be a natural number between 1 and 10,000");
             }
         }
 
