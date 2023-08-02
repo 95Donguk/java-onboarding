@@ -69,7 +69,6 @@ public class Problem6 {
     }
 
     private static class FormsValidator {
-        private static final int MIN_NUMBER_OF_CREWS = 1;
         private static final int MAX_NUMBER_0F_CREWS = 10000;
 
         public static void validate(List<List<String>> forms) {
@@ -84,7 +83,7 @@ public class Problem6 {
         }
 
         private static boolean checkNumberOfCrews(List<List<String>> forms) {
-            return forms.size() < MIN_NUMBER_OF_CREWS || forms.size() > MAX_NUMBER_0F_CREWS;
+            return forms.isEmpty() || forms.size() > MAX_NUMBER_0F_CREWS;
         }
 
         private static class EmailValidator {
@@ -127,7 +126,6 @@ public class Problem6 {
         }
 
         private static class NicknameValidator {
-            private static final int MIN_NICKNAME_LENGTH = 1;
             private static final int MAX_NICKNAME_LENGTH = 20;
 
             public static void validate(String nickname) {
@@ -149,7 +147,7 @@ public class Problem6 {
             }
 
             private static boolean checkNicknameLength(String nickname) {
-                return nickname.length() < MIN_NICKNAME_LENGTH ||
+                return nickname.isEmpty() ||
                     nickname.length() >= MAX_NICKNAME_LENGTH;
             }
         }
