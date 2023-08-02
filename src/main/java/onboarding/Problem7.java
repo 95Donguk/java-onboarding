@@ -49,9 +49,9 @@ public class Problem7 {
     private static Map<String, Integer> calculateVisitScore(Set<String> userFriends,
                                                             List<String> visitors,
                                                             Map<String, Integer> friendRelationScoreRepo) {
-        visitors.stream().forEach(visitor -> friendRelationScoreRepo.put(visitor,
+        visitors.forEach(visitor -> friendRelationScoreRepo.put(visitor,
             friendRelationScoreRepo.getOrDefault(visitor, 0) + 1));
-        userFriends.stream().forEach(friendRelationScoreRepo::remove);
+        userFriends.forEach(friendRelationScoreRepo::remove);
         return friendRelationScoreRepo;
     }
 
@@ -144,7 +144,7 @@ public class Problem7 {
     }
 
     private static class VisitorsValidator {
-        private final static int MAX_VISITORS_LIST_SIZE = 10000;
+        private static final int MAX_VISITORS_LIST_SIZE = 10000;
 
         public static void validate(List<String> visitors) {
             if (!isValidVisitorsListSize(visitors.size())) {
