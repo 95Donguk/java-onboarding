@@ -2,6 +2,7 @@ package onboarding;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class Problem3 {
     private static final int START_NUMBER = 1;
@@ -24,11 +25,14 @@ public class Problem3 {
     }
 
     private static int findResult(int number) {
-        int result = 0;
-        for (int i = START_NUMBER; i <= number; i++) {
-            result += Number.countClapOfNumber(i);
-        }
-        return result;
+//        int result = 0;
+//        for (int i = START_NUMBER; i <= number; i++) {
+//            result += Number.countClapOfNumber(i);
+//        }
+//        return result;
+        return IntStream.rangeClosed(START_NUMBER, number)
+                .map(Number::countClapOfNumber)
+                .sum();
     }
 
     static class Number {
