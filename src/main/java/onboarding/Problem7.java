@@ -13,10 +13,11 @@ import java.util.stream.Collectors;
 
 public class Problem7 {
 
-    public static final int FIRST_FRIEND = 0;
-    public static final int SECOND_FRIEND = 1;
-    public static final int FRIENDLY_SCORE = 10;
-    public static final int VISIT_SCORE = 1;
+    private static final int FIRST_FRIEND = 0;
+    private static final int SECOND_FRIEND = 1;
+    private static final int FRIENDLY_SCORE = 10;
+    private static final int VISIT_SCORE = 1;
+
 
     public static List<String> solution(String user, List<List<String>> friends,
                                         List<String> visitors) {

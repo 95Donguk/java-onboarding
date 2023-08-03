@@ -6,10 +6,10 @@ import java.util.List;
 
 class Problem1 {
 
-    public static final int POBI_WIN = 1;
-    public static final int CRONG_WIN = 2;
-    public static final int DRAW = 0;
-    public static final int EXCEPTION = -1;
+    private static final int POBI_WIN = 1;
+    private static final int CRONG_WIN = 2;
+    private static final int DRAW = 0;
+    private static final int EXCEPTION = -1;
 
     public static void main(String[] args) {
         List<Integer> pobi = new ArrayList<>(Book.open());

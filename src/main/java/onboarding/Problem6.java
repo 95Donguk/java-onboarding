@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class Problem6 {
     private static final Map<String, String> DIVIDED_NICKNAME_REPO = new HashMap<>();
-    public static final int EMAIL_INDEX = 0;
-    public static final int NICKNAME_INDEX = 1;
+    private static final int EMAIL_INDEX = 0;
+    private static final int NICKNAME_INDEX = 1;
 
     public static void main(String[] args) {
         List<List<String>> forms = List.of(
