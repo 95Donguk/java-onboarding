@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Problem6 {
-    private static final Map<String, String> dividedNicknameRepo = new HashMap<>();
+    private static final Map<String, String> DIVIDED_NICKNAME_REPO = new HashMap<>();
     public static final int EMAIL_INDEX = 0;
     public static final int NICKNAME_INDEX = 1;
 
@@ -49,7 +49,7 @@ public class Problem6 {
 
         for (int charIndex = 0; charIndex < nickname.length() - 1; charIndex++) {
             String dividedNickname = nickname.substring(charIndex, charIndex + 2);
-            String limitedNicknameEmail = dividedNicknameRepo.putIfAbsent(dividedNickname, email);
+            String limitedNicknameEmail = DIVIDED_NICKNAME_REPO.putIfAbsent(dividedNickname, email);
             if (!Objects.isNull(limitedNicknameEmail)) {
                 limitedNicknameEmails.add(limitedNicknameEmail);
             }
