@@ -13,6 +13,11 @@ import java.util.stream.Collectors;
 
 public class Problem7 {
 
+    public static final int FIRST_FRIEND = 0;
+    public static final int SECOND_FRIEND = 1;
+    public static final int FRIENDLY_SCORE = 10;
+    public static final int VISIT_SCORE = 1;
+
     public static List<String> solution(String user, List<List<String>> friends,
                                         List<String> visitors) {
         List<String> answer = Collections.emptyList();
@@ -50,7 +55,7 @@ public class Problem7 {
                                                             List<String> visitors,
                                                             Map<String, Integer> friendRelationScoreRepo) {
         visitors.forEach(visitor -> friendRelationScoreRepo.put(visitor,
-            friendRelationScoreRepo.getOrDefault(visitor, 0) + 1));
+            friendRelationScoreRepo.getOrDefault(visitor, 0) + VISIT_SCORE));
         userFriends.forEach(friendRelationScoreRepo::remove);
         return friendRelationScoreRepo;
     }
@@ -63,7 +68,7 @@ public class Problem7 {
                 .forEach(friend -> friend.stream()
                     .filter(mate -> !Objects.equals(mate, userFriend))
                     .forEach(mate -> friendRelationScoreRepo.put(mate,
-                        friendRelationScoreRepo.getOrDefault(mate, 0) + 10))
+                        friendRelationScoreRepo.getOrDefault(mate, 0) + FRIENDLY_SCORE))
                 );
         }
         friendRelationScoreRepo.remove(user);
@@ -74,8 +79,8 @@ public class Problem7 {
                                                Set<String> userFriends) {
         for (List<String> friend : friends) {
             if (friend.contains(user)) {
-                userFriends.add(friend.get(0));
-                userFriends.add(friend.get(1));
+                userFriends.add(friend.get(FIRST_FRIEND));
+                userFriends.add(friend.get(SECOND_FRIEND));
             }
         }
         userFriends.remove(user);
