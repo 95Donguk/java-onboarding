@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class Problem6 {
     private static final Map<String, String> dividedNicknameRepo = new HashMap<>();
+    public static final int EMAIL_INDEX = 0;
+    public static final int NICKNAME_INDEX = 1;
 
     public static void main(String[] args) {
         List<List<String>> forms = List.of(
@@ -42,8 +44,8 @@ public class Problem6 {
     private static Set<String> findEmailsWithLimitedNicknames(List<String> form) {
         Set<String> limitedNicknameEmails = new HashSet<>();
 
-        String email = form.get(0);
-        String nickname = form.get(1);
+        String email = form.get(EMAIL_INDEX);
+        String nickname = form.get(NICKNAME_INDEX);
 
         for (int charIndex = 0; charIndex < nickname.length() - 1; charIndex++) {
             String dividedNickname = nickname.substring(charIndex, charIndex + 2);
@@ -68,8 +70,8 @@ public class Problem6 {
                         "A crew consists of at least 1 and no more than 10,000 people.");
             }
             for (List<String> form : forms) {
-                EmailValidator.validate(form.get(0));
-                NicknameValidator.validate(form.get(1));
+                EmailValidator.validate(form.get(EMAIL_INDEX));
+                NicknameValidator.validate(form.get(NICKNAME_INDEX));
             }
         }
 
